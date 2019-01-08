@@ -14,6 +14,9 @@ pipeline {
         }
         success {
             echo 'I succeeeded!'
+            mail to: 'team@example.com',
+             subject: "succeeeded Pipeline: ${currentBuild.fullDisplayName}",
+             body: "BUILD_URL ${env.BUILD_URL}"
         }
         unstable {
             echo 'I am unstable :/'
